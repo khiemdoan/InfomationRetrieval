@@ -1,0 +1,2 @@
+Bản tin tài chính kinh doanh 9/11: Khởi nghiệp từ giảng đường
+Khởi nghiệp khi còn là sinh viên có thể không phải là con đường của nhiều người. Tuy nhiên, trường học lại chính là nơi tuyệt vời để bắt đầu kinh doanh. Hãy xem các bạn trẻ đã khởi nghiệp thế nào khi còn chưa tốt nghiệp đại học. Bản tin tài chính kinh doanh 5/11: Nợ thuế 400 tỷ còn xin cấp phép xuất khẩu vàng Bản tin tài chính kinh doanh 02/11: Chiêu trò lôi kéo sinh viên vay tín dụng đen vào đa cấp Bản tin tài chính kinh doanh 30/10: VN áp dụng đo lường nghèo đa chiều

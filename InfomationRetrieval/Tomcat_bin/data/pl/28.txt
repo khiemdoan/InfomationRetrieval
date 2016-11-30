@@ -1,0 +1,2 @@
+Mâu thuẫn lên đỉnh điểm, vợ dùng kéo đâm chết chồng
+Công an tỉnh Hải Dương đang tạm giữ đối tượng Đặng Thị Thiết (47 tuổi) để điều tra về hành vi giết ông Tăng Văn Song (56 tuổi) là chồng của đối tượng. Bình Dương: Nghi án chồng giết vợ rồi tự sát Không có tiền trả "xã hội đen", chồng giết vợ rồi tự tử Mâu thuẫn, chồng phi dao giết chết vợ

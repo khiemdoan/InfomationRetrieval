@@ -1,0 +1,2 @@
+Áo dài trị giá 1,2 tỉ đồng
+Ngày 6.11, trong khuôn khổ Hội chợ quốc tế trang sức VN 2015, đại diện Trung tâm sách kỷ lục VN đã trao cho Công ty CP vàng bạc đá quý Phú Nhuận - PNJ chứng nhận Kỷ lục áo dài VN gắn hình tượng phượng hoàng bằng vàng lớn nhất. Ảnh: PNJ Chiếc áo dài (ảnh) được sáng tạo bởi đội ngũ thiết kế PNJ và được các nghệ nhân kim hoàn PNJ chế tác từ 24 lượng vàng trị giá 1,2 tỉ đồng, có chiều dài 115 cm, chiều rộng 44 cm với hơn 2.000 chi tiết tinh xảo do 30 nghệ nhân kim hoàn PNJ chế tác hoàn toàn bằng phương pháp thủ công trong suốt 240 giờ đồng hồ. Cẩm Nhi

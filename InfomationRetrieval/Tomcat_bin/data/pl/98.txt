@@ -1,0 +1,2 @@
+Ai được quyền nuôi con khi không đăng ký kết hôn
+Trong trường hợp này bạn trai tôi có quyền nuôi đứa trẻ không? Chúng tôi chung sống từ năm 2009 nhưng chưa đăng ký kết hôn. Con trai chúng tôi hiện 4 tuổi. Lê Tiểu Linh Luật sư trả lời

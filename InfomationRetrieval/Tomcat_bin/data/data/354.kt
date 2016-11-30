@@ -1,0 +1,2 @@
+Bản tin tài chính kinh doanh 13/11: Khởi nghiệp từ tiệm bánh của người cao tuổi
+Kinh doanh không chỉ vì lợi nhuận mà còn phải có ý nghĩa cho xã hội. Đó là triết lý khởi nghiệp của một cô gái trẻ người Đức. Và từ đây, một tiệm bánh đã ra đời với các đầu bếp rất đặc biệt, những người đã về hưu. Bản tin tài chính kinh doanh 12/11: Bất đắc dĩ kiện chủ đầu tư, đòi phí bảo trì Bản tin tài chính kinh doanh 11/11: Những chiêu thức lôi kéo người dân tham gia mạng lưới từ thiện Bản tin tài chính kinh doanh 9/11: Khởi nghiệp từ giảng đường

@@ -1,0 +1,2 @@
+Bắt lô iPhone 6S nhập lậu cực "khủng" ở Đà Nẵng
+Kiểm tra tại cửa hàng điện thoại di động Đức Lộc, cơ quan chức năng TP .Đà Nẵng phát hiện 18 chiếc iphone không rõ nguồn gốc, tổng trị giá của lô hàng lên đến 100 triệu đồng. Phát hiện lô điện thoại lậu “nấp” dưới gầm container Bắt gần 1000 điện thoại lậu "nằm" dưới gầm xe container Bắt lô hơn 500 điện thoại lậu giấu trong bình chữa cháy

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Infomation Retrieval System</title>
+    <link rel="icon" type="image/png" href="static/favicon.ico" />
+
+    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Angular.js Libraries -->
+    <script src="static/angular/angular.min.js"></script>
+    <script src="static/angular/angular-sanitize.min.js"></script>
+
+    <!-- http://angular-ui.github.io/bootstrap/ -->
+    <script src="static/js/ui-bootstrap-tpls.min.js"></script>
+
+    <script type="text/javascript">
+        var irApp = angular.module("irApp", [
+            "ngSanitize", "ui.bootstrap"
+        ]);
+        
+        irApp.directive("bindHtmlUnsafe", function($compile) {
+            return {
+                restrict: "A",
+                replace: true,
+                link: function (scope, element, attrs) {
+                    scope.$watch(attrs.bindHtmlUnsafe, function(html) {
+                        element.html(html);
+                        $compile(element.contents())(scope);
+                        var scriptTags = element.find("script");
+                        angular.forEach(scriptTags, function(script) {
+                            eval(script.innerHTML);
+                        });
+                    });
+                }
+            };
+        });
+        
+        irApp.directive("ngEnter", function() {
+            return function(scope, element, attrs) {
+                element.bind("keydown keypress", function(event) {
+                    if (event.which === 13) {
+                        scope.$apply(function() {
+                            scope.$eval(attrs.ngEnter);
+                        });
+                        event.preventDefault();
+                    }
+                });
+            };
+        });
+        
+        irApp.controller("irCtrl", function($scope, $http) {
+        	$scope.queryWords = "";
+        	$scope.arrayResults = [];
+        	
+            $scope.query = function() {
+            	var data = "query=" + $scope.queryWords;
+            	$http.post("query", data, {
+                    headers: {"Content-Type": "application/x-www-form-urlencoded"}
+                }).then(function (response) {
+                    // success callback
+                    $scope.arrayResults = response.data;
+                    if ($scope.arrayResults.length === 0) {
+                        alert("Không có kết quả nào phù hợp với câu truy vấn của bạn!!!");
+                    }
+                }, function (response) {
+                    // failure callback
+                    console.log("Có lỗi khi query lên server!!!");
+                    console.log(response.data);
+                });
+            };
+
+            $scope.getContent = function($id) {
+                console.log("Content: " + $id);
+            };
+        });
+    </script>
+</head>
+<body ng-app="irApp" ng-controller="irCtrl" ng-cloak>
+	
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="row">
+       <div class="col-md-6 col-md-offset-2">
+           <div class="form-group">
+               <input class="form-control input-lg" type="text" ng-model="queryWords" ng-enter="query()">
+           </div>
+       </div>
+       <div class="col-md-2">
+            <input type="button" class="btn input-lg" ng-click="query()" value="Tìm kiếm" />
+       </div>
+            </div>
+      </div>
+    </nav>
+  
+    <div class="container">
+        <div ng-if="arrayResults" class="row">
+            <center><h1>Kết quả tìm kiếm</h1></center>
+            <ul class="list-group" ng-repeat="result in arrayResults">
+                <li class="list-group-item">
+                    <h2><a href="{{ result.url }}">{{ result.title }}</a></h2>
+                    <p style="color: #006621;">{{ result.url }}</p>
+                    <p>{{ result.content }}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+	
+</body>
+</html>
