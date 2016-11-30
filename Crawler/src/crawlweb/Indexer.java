@@ -30,13 +30,16 @@ public class Indexer {
     private ir.Indexer indexer;
     private Properties prop;
     private double mThreshold;
+    private String mDataPath;
 
     public Indexer() throws IOException {
         indexer = new ir.Indexer(LuceneConstants.Path.INDEX_PATH);
+        
         try (FileInputStream f = new FileInputStream(PROPERTIES_FILE)) {
             prop = new Properties();
             prop.load(f);
             mThreshold = Double.parseDouble(prop.getProperty(THRESHOLD_PROP, "0.3"));
+            mDataPath = prop.getProperty(DATAPATH_PROP, "data/data");
         }
     }
 
@@ -47,7 +50,8 @@ public class Indexer {
             List<Article> articles = Article.getByIndexedCheck(false);
             for(Article article: articles){
                 try {
-                    indexer.indexFile(new File(article.getFilePath()));
+                    String path = mDataPath + "/" + article.getFilePath();
+                    indexer.indexFile(new File(path));
                     article.setIndexChecked();
                 } catch (IOException ex) {
                     Logger.getLogger(Indexer.class.getName()).log(Level.SEVERE, null, ex);

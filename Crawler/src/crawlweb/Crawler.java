@@ -18,9 +18,14 @@ public class Crawler {
     private FileProcessor fileProcessor = new FileProcessor();
 
     public void crawl(List<Rss> rSSs) throws IOException {
-        Document docRSS;
         for (Rss rss : rSSs) {
-            docRSS = Jsoup.connect(rss.getLink()).get();
+            Document docRSS;
+            try {
+                docRSS = Jsoup.connect(rss.getLink()).get();
+            } catch (Exception ex) {
+                continue;
+            }
+            
             // get all links
             Elements items = docRSS.select("item");
             for (Element item : items) {
@@ -28,7 +33,7 @@ public class Crawler {
                 if (Article.findByURL(link) != null) {
                     continue;
                 }
-                System.out.println(link);
+                
                 Document docContent;
                 try {
                     docContent = Jsoup.connect(link).get();
