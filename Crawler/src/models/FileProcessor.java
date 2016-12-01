@@ -85,7 +85,7 @@ public class FileProcessor {
 
     public void saveFile(Article post) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File(post.getFilePath())))) {
-            writer.write(post.getContent());
+            writer.write(post.getTitle() + "\n" + post.getContent());
         } catch (IOException ex) {
             Logger.getLogger(FileProcessor.class.getName()).log(Level.SEVERE, null, ex);
         }

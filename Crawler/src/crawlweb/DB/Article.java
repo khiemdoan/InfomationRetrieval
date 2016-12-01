@@ -21,6 +21,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.dbcp.BasicDataSource;
 import static crawlweb.Constants.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -66,6 +68,12 @@ public class Article {
 
     public String getContent() {
         return mContent;
+    }
+    
+    public String getContent2(String keyword) {        
+        int length = mContent.length() < 300 ? mContent.length() : 300;
+        String sContent = mContent.substring(0, length) + "...";
+        return sContent;
     }
 
     public String getFilePath() {

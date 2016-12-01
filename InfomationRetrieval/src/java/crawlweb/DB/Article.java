@@ -5,7 +5,6 @@
  */
 package crawlweb.DB;
 
-import com.sun.istack.internal.Nullable;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -22,6 +21,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.dbcp.BasicDataSource;
 import static crawlweb.Constants.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -67,6 +68,12 @@ public class Article {
 
     public String getContent() {
         return mContent;
+    }
+    
+    public String getContent2(String keyword) {        
+        int length = mContent.length() < 300 ? mContent.length() : 300;
+        String sContent = mContent.substring(0, length) + "...";
+        return sContent;
     }
 
     public String getFilePath() {
@@ -215,7 +222,8 @@ public class Article {
             statement.setString(1, mUrl);
             statement.setString(2, mTitle);
             statement.setString(3, mContent);
-            statement.setString(4, mFilePath);
+            File file = new File(mFilePath);
+            statement.setString(4, file.getName());
             statement.setBoolean(5, mIndexed);
             int count = statement.executeUpdate();
             return count > 0;
@@ -225,7 +233,6 @@ public class Article {
         }
     }
 
-    @Nullable
     public static Article findByURL(String url) {
         try (Connection conn = sDbProperties.getConnection()) {
             String query = "select * from " + TABLE_NAME + " where " + URL_FIELD
@@ -240,7 +247,6 @@ public class Article {
         }
     }
 
-    @Nullable
     public static Article findById(int id) {
         try (Connection conn = sDbProperties.getConnection()) {
             String query = "select * from " + TABLE_NAME + " where " + ID_FIELD
@@ -262,7 +268,6 @@ public class Article {
      * @return lay ra Article theo duong dan file, null neu khong co hoac loi
      * ket noi
      */
-    @Nullable
     public static Article findByFilePath(String filePath) {
         try (Connection conn = sDbProperties.getConnection()) {
             String query = "select * from " + TABLE_NAME + " where " + FILEPATH_FIELD

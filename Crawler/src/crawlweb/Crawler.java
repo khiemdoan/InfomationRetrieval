@@ -57,7 +57,7 @@ public class Crawler {
                 }
 
                 //Article article = new Article();
-                StringBuilder builder = new StringBuilder(sTitle).append("\n");
+                StringBuilder builder = new StringBuilder();
                 String content;
                 if (divContent != null) {
                     for (Element p : divContent.getElementsByTag("p")) {

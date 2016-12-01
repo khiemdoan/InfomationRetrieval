@@ -48,14 +48,15 @@ public class Indexer {
         FileFilter filter = new TextFileFilter();
         if (unindexedRate >= mThreshold) {
             List<Article> articles = Article.getByIndexedCheck(false);
-            for(Article article: articles){
-                try {
+            try {
+                for(Article article: articles){
                     String path = mDataPath + "/" + article.getFilePath();
                     indexer.indexFile(new File(path));
                     article.setIndexChecked();
-                } catch (IOException ex) {
-                    Logger.getLogger(Indexer.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                indexer.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Indexer.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

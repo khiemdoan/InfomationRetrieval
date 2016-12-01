@@ -59,7 +59,7 @@ public class Query extends HttpServlet {
                 
                 JSONObject result = new JSONObject();
                 result.put("title", article.getTitle());
-                result.put("content", article.getContent());
+                result.put("content", article.getContent2(query));
                 result.put("url", article.getUrl());
                 arrayResults.add(result);
             }
