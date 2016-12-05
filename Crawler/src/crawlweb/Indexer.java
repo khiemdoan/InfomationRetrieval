@@ -20,6 +20,7 @@ import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
+import utility.PropertiesFile;
 
 /**
  *
@@ -31,16 +32,12 @@ public class Indexer {
     private Properties prop;
     private double mThreshold;
     private String mDataPath;
+    private PropertiesFile p = new PropertiesFile();
 
     public Indexer() throws IOException {
         indexer = new ir.Indexer(LuceneConstants.Path.INDEX_PATH);
-        
-        try (FileInputStream f = new FileInputStream(PROPERTIES_FILE)) {
-            prop = new Properties();
-            prop.load(f);
-            mThreshold = Double.parseDouble(prop.getProperty(THRESHOLD_PROP, "0.3"));
-            mDataPath = prop.getProperty(DATAPATH_PROP, "data/data");
-        }
+        mThreshold = Double.parseDouble(p.getString(THRESHOLD_PROP, "0.3"));
+        mDataPath = p.getString(DATAPATH_PROP, "C:\\ir\\data");
     }
 
     public void appendIndex() {

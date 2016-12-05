@@ -9,6 +9,7 @@ package ir;
  *
  * @author thinhnt
  */
+import crawlweb.Constants;
 import static crawlweb.Constants.PROPERTIES_FILE;
 import static crawlweb.Constants.THRESHOLD_PROP;
 import static crawlweb.Constants.INDEX_PATH_PROP;
@@ -38,24 +39,22 @@ import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
+import utility.PropertiesFile;
 
 public class Indexer {
 
    private IndexWriter writer;
+   private PropertiesFile p = new PropertiesFile();
 
    public Indexer(String indexDirectoryPath) throws IOException{
         //this directory will contain the indexes
         
-        String path = "";
-        try (FileInputStream f = new FileInputStream(PROPERTIES_FILE)) {
-            Properties prop = new Properties();
-            prop.load(f);
-            path = prop.getProperty(INDEX_PATH_PROP, "index");
-        }
-      
-        Directory indexDirectory = FSDirectory.open(Paths.get(path));
+        String indexPath = p.getString(INDEX_PATH_PROP);
+        Directory indexDirectory = FSDirectory.open(Paths.get(indexPath));
 
-        Analyzer analyzer = new VNAnalyzer(LuceneConstants.Path.STOPWORDS_PATH);
+        String stopWordPath = p.getString(Constants.STOPWORDPATH_PROP);
+        Analyzer analyzer = new VNAnalyzer(stopWordPath);
+        
         IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
         iwc.setOpenMode(OpenMode.CREATE_OR_APPEND);
         //create the indexer

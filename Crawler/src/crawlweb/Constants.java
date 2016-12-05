@@ -21,4 +21,5 @@ public class Constants {
     public static final String SOURCEPATH_PROP = "sourcepath";
     public static final String INDEX_PATH_PROP = "indexpath";
     public static final String THRESHOLD_PROP = "threshold";
+    public static final String STOPWORDPATH_PROP = "stopwordpath";
 }

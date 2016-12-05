@@ -1,5 +1,6 @@
 package models;
 
+import utility.PropertiesFile;
 import crawlweb.DB.Article;
 import java.io.*;
 import java.util.*;
@@ -13,23 +14,8 @@ import static crawlweb.Constants.*;
  */
 public class FileProcessor {
 
-    private String AbsolutePath = new File("").getAbsolutePath();
-    private String sourcePath = AbsolutePath + "/websources/rss.txt";
-    //private String dataPath = AbsolutePath + "/data/data";
-    private String dataPath = "data/data";
     private static Properties prop = new Properties();
-
-    public FileProcessor() {
-        try (FileInputStream f = new FileInputStream(PROPERTIES_FILE)) {
-            prop.load(f);
-            dataPath = prop.getProperty(DATAPATH_PROP);
-            sourcePath = prop.getProperty(SOURCEPATH_PROP);
-        } catch (FileNotFoundException ex) {
-            //Logger.getLogger(FileProcessor.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(FileProcessor.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    private PropertiesFile p = new PropertiesFile();
 
     private void createProperties() {
         try (FileOutputStream f = new FileOutputStream(PROPERTIES_FILE, false)) {
@@ -41,13 +27,12 @@ public class FileProcessor {
         }
     }
 
-    public List<Rss> getRssLinks() {
-
+    public List<Rss> getRssLinks() throws IOException {
         List<Rss> rSSs = new ArrayList<>();
+        String sourcePath = p.getString(SOURCEPATH_PROP);
+        
         try (BufferedReader br = new BufferedReader(new FileReader(sourcePath))) {
-
             String link;
-
             while ((link = br.readLine()) != null) {
                 System.out.println(link);
                 Rss rss = new Rss();
@@ -66,6 +51,7 @@ public class FileProcessor {
     }
 
     public String createPath(String extension) throws IOException {
+        String dataPath = p.getString(DATAPATH_PROP);
         File folder = new File(dataPath);
         if (!folder.exists()) {
             folder.mkdirs();

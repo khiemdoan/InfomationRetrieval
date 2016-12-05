@@ -23,6 +23,7 @@ import org.apache.commons.dbcp.BasicDataSource;
 import static crawlweb.Constants.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import utility.PropertiesFile;
 
 /**
  *
@@ -315,15 +316,15 @@ public class Article {
         private static BasicDataSource sDataSource;
         private static final String DRIVER_STRING = "jdbc:mysql:";
 
+        private PropertiesFile p = new PropertiesFile();
+        
         public DBProperties() {
-            Properties p = new Properties();
             try {
-                p.load(new FileReader(new File(PROPERTIES_FILE)));
-                mUserName = p.getProperty(USER_PROP);
-                mPassWord = p.getProperty(PASSWORD_PROP);
-                mServer = p.getProperty(SERVER_PROP);
-                mDatabase = p.getProperty(DATABASE_PROP);
-                mPort = Integer.parseInt(p.getProperty(PORT_PROP));
+                mUserName = p.getString(USER_PROP);
+                mPassWord = p.getString(PASSWORD_PROP);
+                mServer = p.getString(SERVER_PROP);
+                mDatabase = p.getString(DATABASE_PROP);
+                mPort = Integer.parseInt(p.getString(PORT_PROP));
                 mUrl = DRIVER_STRING + "//" + mServer + ":" + mPort
                         + "/" + mDatabase + ENCODE;
                 sDataSource = new BasicDataSource();
@@ -331,8 +332,6 @@ public class Article {
                 sDataSource.setUrl(mUrl);
                 sDataSource.setUsername(mUserName);
                 sDataSource.setPassword(mPassWord);
-            } catch (IOException ex) {
-                generateProperties();
             } catch (NumberFormatException ex) {
                 System.err.println("invalid port value");
             }

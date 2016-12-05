@@ -16,6 +16,7 @@ import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.PhraseQuery;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
+import utility.PropertiesFile;
 
 /**
  *
@@ -40,25 +41,15 @@ public class IR {
 //        }
 //    }
 
+    private PropertiesFile p = new PropertiesFile();
+    
     public void createIndex() throws IOException {
-        
-        String indexDir = "";
-        try (FileInputStream f = new FileInputStream(PROPERTIES_FILE)) {
-            Properties prop = new Properties();
-            prop.load(f);
-            indexDir = prop.getProperty(INDEX_PATH_PROP, "index");
-        }
-        
+        String indexDir = p.getString(INDEX_PATH_PROP, "index");
         indexer = new Indexer(indexDir);
         int numIndexed;
         long startTime = System.currentTimeMillis();
         
-        String dataDir = "";
-        try (FileInputStream f = new FileInputStream(PROPERTIES_FILE)) {
-            Properties prop = new Properties();
-            prop.load(f);
-            dataDir = prop.getProperty(DATAPATH_PROP, "data");
-        }
+        String dataDir = p.getString(DATAPATH_PROP, "data");
         
         numIndexed = indexer.createIndex(dataDir, new TextFileFilter());
         long endTime = System.currentTimeMillis();
