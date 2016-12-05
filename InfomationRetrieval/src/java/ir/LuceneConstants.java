@@ -16,8 +16,8 @@ public class LuceneConstants {
    public static final int MAX_SEARCH = 1000;
    
    public static class Path{
-       public final static String INDEX_PATH = "index";
-       public final static String DOCS_PATH = "data/data";
-       public final static String STOPWORDS_PATH = "data/stopwords";
+       public final static String INDEX_PATH = "C:\\index";
+       public final static String DOCS_PATH = "C:\\data";
+       public final static String STOPWORDS_PATH = "stopwords";
    }
 }

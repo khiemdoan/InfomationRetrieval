@@ -5,7 +5,12 @@
  */
 package ir;
 
+import static crawlweb.Constants.DATAPATH_PROP;
+import static crawlweb.Constants.INDEX_PATH_PROP;
+import static crawlweb.Constants.PROPERTIES_FILE;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Properties;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.PhraseQuery;
@@ -17,9 +22,7 @@ import org.apache.lucene.search.TopDocs;
  * @author thinhnt
  */
 public class IR {
-
-    private String indexDir = LuceneConstants.Path.INDEX_PATH;
-    private String dataDir = LuceneConstants.Path.DOCS_PATH;
+    
     private Indexer indexer;
     private Searcher searcher;
 
@@ -38,9 +41,25 @@ public class IR {
 //    }
 
     public void createIndex() throws IOException {
+        
+        String indexDir = "";
+        try (FileInputStream f = new FileInputStream(PROPERTIES_FILE)) {
+            Properties prop = new Properties();
+            prop.load(f);
+            indexDir = prop.getProperty(INDEX_PATH_PROP, "index");
+        }
+        
         indexer = new Indexer(indexDir);
         int numIndexed;
         long startTime = System.currentTimeMillis();
+        
+        String dataDir = "";
+        try (FileInputStream f = new FileInputStream(PROPERTIES_FILE)) {
+            Properties prop = new Properties();
+            prop.load(f);
+            dataDir = prop.getProperty(DATAPATH_PROP, "data");
+        }
+        
         numIndexed = indexer.createIndex(dataDir, new TextFileFilter());
         long endTime = System.currentTimeMillis();
         indexer.close();
@@ -58,6 +77,12 @@ public class IR {
      */
     public Document[] search(String searchQuery, int maxSearch) throws IOException, ParseException {
         Document[] result = null;
+         String indexDir = "";
+        try (FileInputStream f = new FileInputStream(PROPERTIES_FILE)) {
+            Properties prop = new Properties();
+            prop.load(f);
+            indexDir = prop.getProperty(INDEX_PATH_PROP, "index");
+        }
         searcher = new Searcher(indexDir);
         long startTime = System.currentTimeMillis();
         TopDocs hits = searcher.search(searchQuery, maxSearch);

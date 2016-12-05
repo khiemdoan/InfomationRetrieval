@@ -1,2 +1,0 @@
-Kinh dị “hô biến” rắn chết thối thành rượu quý
-Ngày 12.11, Công an thành phố Tuy Hòa, tỉnh Phú Yên đã bắt quả tang một cơ sở chế biến, sản xuất rượu rắn trái phép với khối lượng lớn ở khu phố 5, phường Phú Lâm. "Tuồn" hơn 5.000 chai rượu ngoại lậu từ Campuchia về VN Phó Thủ tướng yêu cầu xác minh đường dây buôn lậu rượu ở sân bay "Phù phép” Chivas hảo hạng từ rượu giá rẻ và phẩm màu

@@ -9,9 +9,13 @@ package ir;
  *
  * @author thinhnt
  */
+import static crawlweb.Constants.PROPERTIES_FILE;
+import static crawlweb.Constants.THRESHOLD_PROP;
+import static crawlweb.Constants.INDEX_PATH_PROP;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -20,6 +24,7 @@ import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Properties;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 
@@ -39,15 +44,22 @@ public class Indexer {
    private IndexWriter writer;
 
    public Indexer(String indexDirectoryPath) throws IOException{
-      //this directory will contain the indexes
-      Directory indexDirectory = 
-         FSDirectory.open(Paths.get(LuceneConstants.Path.INDEX_PATH));
+        //this directory will contain the indexes
+        
+        String path = "";
+        try (FileInputStream f = new FileInputStream(PROPERTIES_FILE)) {
+            Properties prop = new Properties();
+            prop.load(f);
+            path = prop.getProperty(INDEX_PATH_PROP, "index");
+        }
+      
+        Directory indexDirectory = FSDirectory.open(Paths.get(path));
 
-      Analyzer analyzer = new VNAnalyzer(LuceneConstants.Path.STOPWORDS_PATH);
-      IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
-      iwc.setOpenMode(OpenMode.CREATE_OR_APPEND);
-      //create the indexer
-      writer = new IndexWriter(indexDirectory, iwc);
+        Analyzer analyzer = new VNAnalyzer(LuceneConstants.Path.STOPWORDS_PATH);
+        IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
+        iwc.setOpenMode(OpenMode.CREATE_OR_APPEND);
+        //create the indexer
+        writer = new IndexWriter(indexDirectory, iwc);
    }
 
    public void close() throws CorruptIndexException, IOException{

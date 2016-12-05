@@ -19,5 +19,6 @@ public class Constants {
     public static final String PROPERTIES_FILE = "config.properties";
     public static final String DATAPATH_PROP = "datapath";
     public static final String SOURCEPATH_PROP = "sourcepath";
+    public static final String INDEX_PATH_PROP = "indexpath";
     public static final String THRESHOLD_PROP = "threshold";
 }

@@ -1,2 +1,0 @@
-Tiêu thụ ô tô Việt Nam tăng kỉ lục trong tháng 10
-Thống kê của Hiệp hội các nhà sản xuất ô tô Việt Nam (VAMA) cho thấy, trong tháng 10/2015, tổng doanh số bán hàng của toàn thị trường đạt 22.368 xe, tăng 5% so với tháng trước. Điều chỉnh thuế, ô tô nhỏ ồ ạt nhập vào Việt Nam Phá đường dây tiêu thụ ôtô phi pháp bằng giấy tờ “ma” Cảnh báo dấu hiệu đầu cơ điều thô nhập khẩu

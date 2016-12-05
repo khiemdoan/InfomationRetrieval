@@ -1,2 +1,0 @@
-Bắt xe tải “tuồn” 500kg nội tạng thối từ Nam ra Bắc
-Hôm qua 5/11, chiếc xe vận chuyển 500kg nội tạng hôi thối, không rõ nguồn gốc từ cảng cá ở Đà Nẵng ra Quảng Ninh tiêu thụ, khi đi đến Hà Tĩnh thì bị cơ quan chức năng phát hiện, bắt giữ. Rợn người 700 kg nội tạng thối suýt “lạc” lên mâm Hà Nội tăng giá nước sạch từ ngày 1.10 “Om” hơn 600kg nội tạng thối trong nhà

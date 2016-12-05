@@ -1,2 +1,0 @@
-Anh em tương tàn vì tranh chấp đất đai
-Chiều 8/11, Công an tỉnh Lâm Đồng đã bắt giữ Trương Thanh Hoàng, 49 tuổi để điều tra hành vi Giết người Công an khám nghiệm hiện trường. Ảnh: Hoài Thanh Sáng cùng ngày, ông Hoàng được em ruột 47 tuổi mời đến nhà ở huyện Di Linh chơi. Lúc ăn nhậu, hai bên xảy ra mâu thuẫn về chuyện tranh chấp đất đai. Khi xông vào ẩu đả, Hoàng dùng dao đâm vào cổ em trai. Thấy người em gục xuống sàn nhà, Hoàng đã chạy qua nhờ hàng xóm đến đưa nạn nhân đi cấp cứu nhưng không kịp.  Hoài Thanh

@@ -1,2 +1,0 @@
-Máy đếm ăn bớt tiền ở Trung Quốc
-CCTV vừa dẫn lại một đoạn video đăng tải bởi Chen Qingzhou - một cảnh sát nổi tiếng tại Trung Quốc, chỉ ra bằng cách nào một chiếc máy đếm tiền có thể giúp chủ nhân gian lận trong các giao dịch. Chỉ với một chiếc điều khiển, người ta có thể can thiệp cho máy đếm đến một số tiền nhất định, và rút những tờ còn lại xuống khe bên dưới.  Hà Thu
