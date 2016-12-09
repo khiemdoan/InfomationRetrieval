@@ -1,1 +1,1 @@
-java -jar Crawler.jar
+java -Dfile.encoding=UTF8 -jar Crawler.jar

@@ -81,6 +81,7 @@ public class Crawler {
     }
 
     public static void main(String[] args) {
+        System.setProperty("file.encoding", "UTF-8");
         try {
             Crawler clawler = new Crawler();
             clawler.crawl(new FileProcessor().getRssLinks());
